@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2e8bee70-47d7-4479-a9bd-b22777713fc1">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <parameter name="company" class="java.lang.String"/>
+    <parameter name="createDate" class="java.lang.String"/>
+    <parameter name="sendAddress" class="java.lang.String"/>
+    <parameter name="recAddress" class="java.lang.String"/>
+    <queryString>
+        <![CDATA[select * from T_way_bill]]>
+    </queryString>
+    <field name="wayBillNum" class="java.lang.String"/>
+    <field name="sendName" class="java.lang.String"/>
+    <field name="recName" class="java.lang.String"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="103" splitType="Stretch">
+            <textField isStretchWithOverflow="true">
+                <reportElement stretchType="RelativeToTallestObject" x="186" y="16" width="140" height="44" uuid="3e5ca1b6-4838-4234-8236-0295d041a4a2"/>
+                <textElement textAlignment="Center" markup="none">
+                    <font fontName="宋体" size="24" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["报表"]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement stretchType="RelativeToTallestObject" x="393" y="37" width="120" height="23" uuid="404ba9b6-84e4-4d13-8c1c-d400ac186799"/>
+                <textElement textAlignment="Justified">
+                    <font fontName="宋体" size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{company}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="206" y="80" width="120" height="23" uuid="2aaf94e5-c521-45ac-aa3d-88f0a09c432d"/>
+                <textElement textAlignment="Justified">
+                    <font fontName="宋体" size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{recAddress}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="42" y="80" width="120" height="23" uuid="39e19032-59ff-4bac-9ffc-37429f0da3bb"/>
+                <textElement textAlignment="Justified">
+                    <font fontName="宋体" size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{sendAddress}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="326" y="80" width="120" height="23" uuid="772ef311-ebf6-4ebd-8b2b-cf51573ad42c"/>
+                <textElement textAlignment="Justified">
+                    <font fontName="宋体" size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{createDate}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="58" splitType="Stretch">
+            <staticText>
+                <reportElement x="186" y="40" width="100" height="18" uuid="bc06f6ba-759b-47e2-9127-d73a7bb387e9"/>
+                <textElement textAlignment="Center">
+                    <font fontName="宋体" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+                </textElement>
+                <text><![CDATA[发件人]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="339" y="38" width="100" height="20" uuid="51c7c31b-c878-486f-9179-30d7a0aa804e"/>
+                <textElement textAlignment="Center">
+                    <font fontName="宋体" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+                </textElement>
+                <text><![CDATA[收件人]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="42" y="38" width="100" height="20" uuid="8bb03359-b555-4a30-8d69-df8fd0a39fc0"/>
+                <textElement textAlignment="Center">
+                    <font fontName="宋体" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+                </textElement>
+                <text><![CDATA[运单号]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="58" splitType="Stretch">
+            <textField>
+                <reportElement x="186" y="0" width="120" height="24" uuid="9fe1d84b-1321-42c5-9b5a-03a009148c69"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{sendName}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="339" y="0" width="124" height="24" uuid="c281913b-e1dc-4484-83b6-b5f7f990c2bd"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{recName}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="42" y="0" width="100" height="20" uuid="203e592b-4656-485a-a806-0818a68cdc53"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{wayBillNum}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch"/>
+    </summary>
+</jasperReport>
